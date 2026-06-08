@@ -67,9 +67,11 @@
     "directories": {
       "output": "release"
     },
-    "files": [
+   "files": [
   "electron/**/*",
+  "dist/**/*",
   "node_modules/**/*",
+  "package.json",
   "!node_modules/.cache",
   "!node_modules/.bin"
 ],
@@ -91,13 +93,16 @@
       }
     ],
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        }
+  "target": [
+    {
+      "target": "nsis",
+      "arch": ["x64"]
+    }
+  ],
+  "requestedExecutionLevel": "asInvoker",
+  "sign": false
+},
+"forceCodeSigning": false
       ],
       "requestedExecutionLevel": "asInvoker"
     },
