@@ -1,0 +1,6 @@
+{
+  "name": "Damson Billing Software",
+  "description": "Professional Multi-Company Invoice & Billing Software for Businesses",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
