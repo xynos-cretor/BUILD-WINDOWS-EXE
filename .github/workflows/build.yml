@@ -7,10 +7,6 @@ jobs:
   build:
     runs-on: windows-latest
 
-    env:
-      CSC_IDENTITY_AUTO_DISCOVERY: "false"
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,22 +15,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install Dependencies
         run: npm install --no-fund --no-audit
 
-      - name: Build Frontend & Server
+      - name: Build Frontend
         run: npm run build
 
       - name: Build Electron App
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: npx electron-builder --win nsis --x64 --publish never
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: Nexus-ERP-Pro
-          path: |
-            release/*.exe
-            release/*.blockmap
-            release/win-unpacked/**
+          path: release/**
