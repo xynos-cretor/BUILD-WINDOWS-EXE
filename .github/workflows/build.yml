@@ -8,22 +8,31 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - run: npm install --no-fund --no-audit
+      - name: Install Dependencies
+        run: npm install --no-fund --no-audit
 
-      - run: npm run build
+      - name: Build Frontend & Server
+        run: npm run build
+
+      - name: Debug Environment
+        shell: pwsh
+        run: |
+          Write-Host "WIN_CSC_LINK=[$env:WIN_CSC_LINK]"
+          Write-Host "CSC_LINK=[$env:CSC_LINK]"
 
       - name: Build Electron App
-        env:
-          CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: npx electron-builder --win nsis --x64 --publish never
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
         with:
           name: Nexus-ERP-Pro
           path: release/**
