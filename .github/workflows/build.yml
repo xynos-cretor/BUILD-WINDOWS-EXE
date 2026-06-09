@@ -9,8 +9,6 @@ jobs:
 
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
-      WIN_CSC_LINK: ""
-      CSC_LINK: ""
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -26,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --no-fund --no-audit
 
-      - name: Build Frontend
+      - name: Build Frontend & Server
         run: npm run build
 
       - name: Build Electron App
