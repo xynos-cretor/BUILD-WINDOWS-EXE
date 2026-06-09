@@ -52,7 +52,7 @@
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
     "electron": "^31.0.0",
-    "electron-builder": "^24.13.3",
+    "electron-builder": "24.9.1",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2"
@@ -105,7 +105,6 @@
   "createDesktopShortcut": true,
   "createStartMenuShortcut": true,
   "shortcutName": "Nexus ERP Pro",
-  "license": "LICENSE.txt"
 }
 }
 }
