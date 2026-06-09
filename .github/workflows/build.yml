@@ -9,6 +9,8 @@ jobs:
 
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
+      WIN_CSC_LINK: ""
+      CSC_LINK: ""
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -37,3 +39,4 @@ jobs:
           path: |
             release/*.exe
             release/*.blockmap
+            release/win-unpacked/**
