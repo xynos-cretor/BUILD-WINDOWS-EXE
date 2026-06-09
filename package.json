@@ -6,6 +6,8 @@
   "description": "Professional Multi-Company Invoice & Billing Software",
   "main": "electron/main.js",
   "type": "commonjs",
+  "author" : "DAMSON SOFTWARES" ,
+  
   "scripts": {
     "dev": "tsx server.ts",
     "build:web": "vite build",
