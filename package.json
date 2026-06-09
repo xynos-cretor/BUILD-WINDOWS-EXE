@@ -92,7 +92,7 @@
         ]
       }
     ],
-   "win": {
+  "win": {
   "target": [
     {
       "target": "nsis",
@@ -111,5 +111,4 @@
   "shortcutName": "Nexus ERP Pro",
   "license": "LICENSE.txt"
 }
-  }
 }
