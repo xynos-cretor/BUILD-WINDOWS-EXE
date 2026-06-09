@@ -95,13 +95,9 @@
       }
     ],
   "win": {
-  "target": [
-    {
-      "target": "nsis",
-      "arch": ["x64"]
-    }
-  ],
-  "requestedExecutionLevel": "asInvoker"
+  "target": "nsis",
+  "requestedExecutionLevel": "asInvoker",
+  "verifyUpdateCodeSignature": false
 },
 "nsis": {
   "oneClick": false,
