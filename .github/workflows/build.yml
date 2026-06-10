@@ -14,24 +14,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
       - name: Install Dependencies
-        run: npm install --no-fund --no-audit
+        run: npm install
 
-      - name: Build Frontend & Server
+      - name: Build Project
         run: npm run build
 
-      - name: Debug Environment
-        shell: pwsh
+      - name: Build EXE
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: |
-          Write-Host "WIN_CSC_LINK=[$env:WIN_CSC_LINK]"
-          Write-Host "CSC_LINK=[$env:CSC_LINK]"
+          npx electron-builder --win portable nsis --x64 --publish never
 
-      - name: Build Electron App
-        run: npx electron-builder --win nsis --x64 --publish never
-
-      - name: Upload EXE
+      - name: Upload Build
         uses: actions/upload-artifact@v4
         with:
           name: Nexus-ERP-Pro
