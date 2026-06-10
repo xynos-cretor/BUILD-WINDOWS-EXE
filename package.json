@@ -62,10 +62,13 @@
     "productName": "Nexus ERP Pro",
     "asar": true,
     "asarUnpack": [
-      "electron/**/*",
-      "node_modules/better-sqlite3/**",
-      "node_modules/multer/**"
-    ],
+  "**/*.node",
+  "node_modules/better-sqlite3/**",
+  "node_modules/multer/**"
+],
+"npmRebuild": true,
+"buildDependenciesFromSource": true,
+"nodeGypRebuild": false,
     "directories": {
       "output": "release"
     },
