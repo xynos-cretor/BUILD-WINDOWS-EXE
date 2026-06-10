@@ -24,7 +24,7 @@
 
 @layer base {
   body {
-    background-color: #F8F9FA;
+    background-color: #0e4a8570;
     color: #1F2937;
   }
   
@@ -36,7 +36,7 @@
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #E5E7EB;
+    background: #92b4f9;
     border-radius: 10px;
   }
 }
