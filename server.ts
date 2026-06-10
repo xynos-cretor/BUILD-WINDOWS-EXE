@@ -7,7 +7,11 @@ process.env.NODE_PATH =
     "node_modules"
   );
 
-require("module").Module._initPaths();
+import Module from "module";
+
+if (process.env.NODE_PATH) {
+  Module._initPaths();
+}
 import express from "express";
 import path from "path";
 // vite is only imported dynamically in dev mode (never bundled into production)
@@ -53,7 +57,8 @@ db.exec(`
 
   CREATE TABLE IF NOT EXISTS vendors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    company_id INTEGER,
+    company_id INTEGER, 
+     
     name TEXT NOT NULL,
     mobile TEXT,
     address TEXT,
