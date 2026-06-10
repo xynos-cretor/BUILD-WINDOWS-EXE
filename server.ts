@@ -1,4 +1,13 @@
 require('module').Module._initPaths();
+process.env.NODE_PATH =
+  process.env.NODE_PATH ||
+  require("path").join(
+    process.resourcesPath || process.cwd(),
+    "app.asar.unpacked",
+    "node_modules"
+  );
+
+require("module").Module._initPaths();
 import express from "express";
 import path from "path";
 // vite is only imported dynamically in dev mode (never bundled into production)
