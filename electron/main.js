@@ -83,10 +83,10 @@ function startServer() {
   PORT: String(PORT),
   DB_PATH: dbPath,
   DIST_PATH: distPath,
-  NODE_PATH: path.join(
-    process.resourcesPath,
-    'app.asar.unpacked',
-    'node_modules'
+ NODE_PATH: path.join(
+  process.resourcesPath,
+  'app.asar.unpacked',
+  'node_modules'
   )
 }),
     cwd: app.isPackaged ? process.resourcesPath : appRoot(),
