@@ -1,3 +1,4 @@
+require('module').Module._initPaths();
 import express from "express";
 import path from "path";
 // vite is only imported dynamically in dev mode (never bundled into production)
