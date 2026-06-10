@@ -78,12 +78,17 @@ function startServer() {
   console.log('DB    :', dbPath);
 
   serverProcess = spawn(nodePath, [serverPath], {
-    env: Object.assign({}, process.env, {
-      NODE_ENV: 'production',
-      PORT: String(PORT),
-      DB_PATH: dbPath,
-      DIST_PATH: distPath,
-    }),
+   env: Object.assign({}, process.env, {
+  NODE_ENV: 'production',
+  PORT: String(PORT),
+  DB_PATH: dbPath,
+  DIST_PATH: distPath,
+  NODE_PATH: path.join(
+    process.resourcesPath,
+    'app.asar.unpacked',
+    'node_modules'
+  )
+}),
     cwd: app.isPackaged ? process.resourcesPath : appRoot(),
     stdio: ['ignore', 'pipe', 'pipe'],
   });
